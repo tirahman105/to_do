@@ -1,0 +1,216 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	background-color: #0094FFFF;
+	color: white;
+
+	display: grid;
+	grid-template-areas:  
+	"header header header header" 
+	". lists active ." ;
+}
+
+.title{
+	grid-area: header;
+	text-align: center;
+	font-size: 5vw;
+}
+
+.all-tasks{
+	grid-area: lists;
+}
+
+.task-list{
+	line-height: 1.7;
+	font-size: 1.2rem;
+}
+
+.list-name{
+	cursor: pointer;
+}
+
+.list-name:hover{
+	opacity: .7;
+}
+
+.new{
+	margin-top: 10px;
+	background: transparent;
+	font-color: white;
+	border: 0;
+	border-bottom: 1px solid white;
+	outline: none;
+	font-size: 1.2rem;
+
+	transition: border-bottom 150ms ease-in;
+}
+
+.new::placeholder{
+	color: white;
+	font-weight: 200;
+}
+
+.new:focus{
+	border-bottom-width: 3px;
+}
+.new:focus::placeholder{
+	opacity: 0.2;
+}
+.active-list{
+	font-weight: 700;
+}
+
+.btn-list, .btn-task{
+	padding: 5px;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.todo-list{
+	grid-area: active;
+	background-color: white;
+	color: black;
+}
+
+.todo-header{
+	background-color: #e4e4e4;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.todo-body{
+	padding: 20px;
+	position: relative;
+}
+
+.new-list{
+	margin-top: 10px;
+	background: transparent;
+	font-color: white;
+	border: 0;
+	border-bottom: 1px solid grey;
+	outline: none;
+	font-size: 1.2rem;
+
+	transition: border-bottom 150ms ease-in;
+}
+
+.new-list::placeholder{
+	
+	font-weight: 200;
+}
+
+.new-list:focus{
+	border-bottom-width: 3px;
+}
+.new-list:focus::placeholder{
+	opacity: 0.2;
+}
+
+.task {
+	margin-bottom: 1.25rem;
+}
+
+[type="checkbox"]{
+	opacity: 0;
+	position: absolute;
+
+}
+.task label {
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+	/*margin-bottom: 1.25em;*/
+}
+
+.task {
+	position: relative;
+}
+
+.task::after{
+	content:"";
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: -0.5em;
+	height: 1.5px;
+	background: black;
+	opacity: 0.2;
+}
+.custom-checkbox{
+	--size: .75em;
+	display: inline-block;
+	width: var(--size);
+	height: var(--size);
+	cursor: pointer;
+	border: 2px solid grey;
+	border-radius: 50%;
+	margin-right: 10px;
+	transform: scale(1);
+	transition: transform 300ms ease-in-out;
+}
+
+.task:hover .custom-checkbox,
+[type="checkbox"]:focus +label .custom-checkbox{
+	transform: scale(1.2);
+	color: #0094FFFF;
+}
+
+[type="checkbox"]:checked +label .custom-checkbox{
+	background: #0094FFFF;
+	border-color:#0094FFFF; 
+	box-shadow: inset 0 0 3px white;
+}
+
+[type="checkbox"]:checked +label{
+	opacity: 0.5;
+}
+
+.task label::after{
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	left: 1.5em;
+	height: 1.5px;
+	background: grey;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 300ms ease-in-out;
+}
+
+[type="checkbox"]:checked +label::after{
+	transform: scaleX(1);
+	transform-origin: left;
+}
+
+.delete-stuff{
+	display: flex;
+	justify-content: space-around;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: -45px;
+	color: black;
+}
+
+.btn-delete{
+	border: none;
+	padding: 8px;
+	border-radius: 5px;
+	transition: 200ms;
+
+}
+
+.btn-delete:hover{
+	background-color: gold;
+	cursor: pointer;
+
+}
